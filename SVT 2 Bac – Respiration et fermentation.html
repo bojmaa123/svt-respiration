@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>index.html</title>
+<title>SVT 2 Bac – Respiration et fermentation</title>
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#e9f4f1;--surf:#fff;--ink:#12303a;--mute:#4b6b75;--a:#0f8b8d;--b:#f2a33a;--c:#e4572e;--d:#6c4ab6;--edge:#0b5f61;--sh:rgba(15,70,80,.28);
@@ -51,6 +51,18 @@ footer{margin-top:50px;text-align:center;color:var(--mute);font-size:.85rem}
 .hot[aria-pressed="true"]{background:var(--b);color:#2a1b00;transform:translateY(3px);box-shadow:0 1px 0 #a56a12}
 .hint{text-align:center;color:var(--mute);font-size:.85rem;margin:14px 0 18px}
 #panel{border-top-color:var(--b)}
+.ico{width:62px;height:62px;font-size:34px;animation:sway 3.4s ease-in-out infinite}
+.hot span{font-size:1.6rem;line-height:1;filter:drop-shadow(0 3px 0 rgba(0,0,0,.25))}
+@keyframes sway{0%,100%{transform:rotateY(-28deg) translateY(0)}50%{transform:rotateY(28deg) translateY(-8px)}}
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:22px 16px;perspective:900px}
+.tile{position:relative;background:var(--surf);border-radius:18px;padding:16px 10px;text-align:center;box-shadow:0 6px 0 var(--edge),0 16px 22px var(--sh)}
+.tile .n{position:absolute;top:-10px;left:-6px;width:28px;height:28px;border-radius:50%;background:var(--c);color:#fff;font:700 .85rem Fredoka,sans-serif;display:grid;place-items:center;box-shadow:0 3px 0 #a6381b}
+.tile .big,.e3d{display:inline-block;font-size:3.4rem;line-height:1.1;filter:drop-shadow(0 6px 0 rgba(0,0,0,.18)) drop-shadow(0 12px 10px var(--sh));animation:sway 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+.tile b{display:block;font-family:Fredoka,sans-serif;margin-top:4px}
+.tile small{display:block;color:var(--mute);font-size:.8rem;line-height:1.35}
+.e3d{font-size:4.2rem}
+footer p{font:700 1.05rem Fredoka,sans-serif;color:var(--ink);max-width:520px;margin:8px auto 0}
+@media (prefers-reduced-motion:reduce){.ico,.tile .big,.e3d{animation:none}}
 @media (prefers-reduced-motion:reduce){.card,.flip>span{transition:none}}
 </style>
 </head>
@@ -68,6 +80,17 @@ footer{margin-top:50px;text-align:center;color:var(--mute);font-size:.85rem}
 <button class="hot" data-k="fer" style="left:2%;bottom:5%"><span>🧫</span>Fermentation</button></div>
 <p class="hint">Glisse pour tourner la mitochondrie · clique sur une étape autour d’elle</p>
 <div class="card" id="panel" aria-live="polite"></div></section>
+
+<section><h2><span class="ico">🗺️</span>Le parcours du glucose en images</h2>
+<div class="flow">
+<div class="tile"><span class="n">1</span><span class="big">🍬</span><b>Glucose</b><small>entre dans la cellule</small></div>
+<div class="tile"><span class="n">2</span><span class="big" style="--d:.3s">✂️</span><b>Glycolyse</b><small>hyaloplasme : 2 ATP</small></div>
+<div class="tile"><span class="n">3</span><span class="big" style="--d:.6s">🔶</span><b>Pyruvate</b><small>entre dans la mitochondrie</small></div>
+<div class="tile"><span class="n">4</span><span class="big" style="--d:.9s">🔄</span><b>Krebs</b><small>matrice : CO₂ + NADH, FADH₂</small></div>
+<div class="tile"><span class="n">5</span><span class="big" style="--d:1.2s">⚡</span><b>Chaîne respiratoire</b><small>é⁻ vers O₂, pompe les H⁺</small></div>
+<div class="tile"><span class="n">6</span><span class="big" style="--d:1.5s">🔋</span><b>ATP synthase</b><small>jusqu’à 38 ATP</small></div>
+<div class="tile"><span class="n">?</span><span class="big" style="--d:1.8s">🧫</span><b>Sans O₂</b><small>fermentation : 2 ATP</small></div>
+</div></section>
 
 <section><h2><span class="ico">🔬</span>Vue d’ensemble</h2>
 <div class="grid">
@@ -136,7 +159,7 @@ footer{margin-top:50px;text-align:center;color:var(--mute);font-size:.85rem}
 <button class="flip"><span><em class="q">Pourquoi la fermentation rend-elle moins d’ATP ?<small>Clique pour voir la réponse</small></em><em class="ans">Dégradation <b>partielle</b> : le résidu organique est encore riche en énergie. Rendement ≈ 2 % contre ≈ 40 %.</em></span></button>
 </div></section>
 
-<footer>Résumé basé sur le cours de Mme CHARDANI Mina · bon courage pour l’examen 💪</footer>
+<footer><span class="e3d">🥹</span><p>Madame CHARDANI, soyez indulgente avec moi s’il vous plaît, j’ai bien révisé ! 🙏</p></footer>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
