@@ -61,6 +61,10 @@ footer{margin-top:50px;text-align:center;color:var(--mute);font-size:.85rem}
 .tile b{display:block;font-family:Fredoka,sans-serif;margin-top:4px}
 .tile small{display:block;color:var(--mute);font-size:.8rem;line-height:1.35}
 .e3d{font-size:4.2rem}
+.f3w{perspective:1100px}
+.f3{background:var(--surf);border-radius:20px;padding:10px;box-shadow:0 8px 0 var(--edge),0 26px 36px var(--sh);transform:rotateX(8deg);transition:transform .15s ease-out}
+.f3 svg{display:block;width:100%;height:auto}
+.f3 text{font-family:Nunito,sans-serif;font-weight:700;fill:var(--ink)}
 footer p{font:700 1.05rem Fredoka,sans-serif;color:var(--ink);max-width:520px;margin:8px auto 0}
 @media (prefers-reduced-motion:reduce){.ico,.tile .big,.e3d{animation:none}}
 @media (prefers-reduced-motion:reduce){.card,.flip>span{transition:none}}
@@ -130,6 +134,59 @@ footer p{font:700 1.05rem Fredoka,sans-serif;color:var(--ink);max-width:520px;ma
 <div class="card o"><h3>🔋 Synthèse d’ATP</h3><p>Les H⁺ reviennent dans la matrice <b>uniquement par l’ATP synthase</b> (sphère pédonculée). Ce flux fournit l’énergie pour :</p><code class="eq">ADP + Pi + énergie (flux H+) → ATP</code><p>Conditions : gradient (pHi &gt; pHe) <b>et</b> sphères pédonculées.</p></div>
 <div class="card r"><h3>📊 Rendement des transporteurs</h3><span class="chip">1 NADH,H⁺ → 3 ATP</span><span class="chip o">1 FADH₂ → 2 ATP</span><p>On parle de « phosphorylation oxydative » car la phosphorylation de l’ADP est couplée à l’oxydation des transporteurs.</p></div>
 </div></section>
+
+<section><h2><span class="ico">🧬</span>La chaîne respiratoire en 3D (Doc 3)</h2>
+<div class="f3w"><div class="f3" id="f3">
+<svg viewBox="0 0 900 440" role="img" aria-label="Schéma 3D de la chaîne respiratoire : transporteurs T1 à T6, électrons et pompage des protons">
+<defs>
+<linearGradient id="gm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#c9f3f4"/><stop offset="1" stop-color="#7fd3d6"/></linearGradient>
+<linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b18bff"/><stop offset="1" stop-color="#7a4be0"/></linearGradient>
+<linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c4f56b"/><stop offset="1" stop-color="#79d11f"/></linearGradient>
+<linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff27a"/><stop offset="1" stop-color="#f5c400"/></linearGradient>
+<linearGradient id="g4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#9ae0ff"/><stop offset="1" stop-color="#3ba6dd"/></linearGradient>
+<linearGradient id="g5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff8cc4"/><stop offset="1" stop-color="#e0207f"/></linearGradient>
+<linearGradient id="g6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b95ad6"/><stop offset="1" stop-color="#6a1f8a"/></linearGradient>
+<filter id="ds" x="-20%" y="-20%" width="150%" height="150%"><feDropShadow dx="0" dy="6" stdDeviation="4" flood-color="#000" flood-opacity=".35"/></filter>
+</defs>
+<text x="30" y="36" font-size="17">Espace intermembranaire</text>
+<rect x="330" y="14" width="150" height="30" rx="8" fill="#7bea6b"/><text x="405" y="35" font-size="16" text-anchor="middle" style="fill:#0b3a1b">[H⁺] élevée</text>
+<text x="30" y="290" font-size="17">Matrice</text>
+<rect x="330" y="392" width="150" height="30" rx="8" fill="#7bea6b"/><text x="405" y="413" font-size="16" text-anchor="middle" style="fill:#0b3a1b">[H⁺] faible</text>
+<rect x="30" y="150" width="840" height="92" rx="6" fill="#3aa3a8"/>
+<rect x="30" y="140" width="840" height="92" rx="6" fill="url(#gm)"/>
+<text x="46" y="190" font-size="17" style="fill:#0b3a3d">Membrane interne</text>
+<g filter="url(#ds)"><rect x="236" y="128" width="72" height="118" rx="10" fill="#4b2aa0"/><rect x="228" y="120" width="72" height="118" rx="10" fill="url(#g1)"/>
+<rect x="350" y="186" width="96" height="40" rx="7" fill="#4f9a14"/><rect x="344" y="180" width="96" height="40" rx="7" fill="url(#g2)"/>
+<ellipse cx="506" cy="190" rx="38" ry="22" fill="#b58b00"/><ellipse cx="502" cy="184" rx="38" ry="22" fill="url(#g3)"/>
+<rect x="578" y="128" width="50" height="118" rx="20" fill="#1f77a6"/><rect x="572" y="120" width="50" height="118" rx="20" fill="url(#g4)"/>
+<ellipse cx="694" cy="190" rx="42" ry="26" fill="#9c0f55"/><ellipse cx="690" cy="184" rx="42" ry="26" fill="url(#g5)"/>
+<rect x="768" y="122" width="66" height="124" rx="8" fill="#431259"/><rect x="760" y="114" width="66" height="124" rx="8" fill="url(#g6)"/></g>
+<g font-size="20" text-anchor="middle" style="paint-order:stroke"><text x="264" y="186" style="fill:#fff;stroke:#3b1b8a;stroke-width:3px">T₁</text><text x="392" y="208" style="fill:#1d3a00">T₂</text><text x="502" y="191" style="fill:#3a2e00">T₃</text><text x="597" y="186" style="fill:#fff;stroke:#0f4f73;stroke-width:3px">T₄</text><text x="690" y="191" style="fill:#fff;stroke:#7a0b40;stroke-width:3px">T₅</text><text x="793" y="182" style="fill:#fff;stroke:#2c0a3a;stroke-width:3px">T₆</text></g>
+<g font-size="16" text-anchor="middle"><text x="250" y="322">NADH,H⁺</text><text x="330" y="322">→ NAD⁺</text><text x="400" y="352">FADH₂ → FAD</text><text x="690" y="322">½ O₂ + 2H⁺ → H₂O</text></g>
+<path d="M262 246 v38 M400 222 v60 M792 246 v38" stroke="var(--mute)" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
+
+<g font-size="15" text-anchor="middle"><text x="262" y="84">2H⁺</text><text x="597" y="84">2H⁺</text><text x="792" y="84">2H⁺</text><text x="262" y="384">2H⁺</text><text x="597" y="384">2H⁺</text><text x="792" y="384">2H⁺</text></g>
+<g opacity="0"><circle r="11" fill="#111" stroke="#fff" stroke-width="2"/><text y="4" font-size="13" text-anchor="middle" style="fill:#fff">é</text><animateMotion dur="5s" repeatCount="indefinite" path="M262 205 C300 140 440 140 502 184" keyPoints="0;0;1;1" keyTimes="0;0;.24;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;0;.01;.24;.25;1" dur="5s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="11" fill="#111" stroke="#fff" stroke-width="2"/><text y="4" font-size="13" text-anchor="middle" style="fill:#fff">é</text><animateMotion dur="5s" repeatCount="indefinite" path="M392 200 C420 170 470 170 502 184" keyPoints="0;0;1;1" keyTimes="0;.04;.24;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.04;.05;.24;.25;1" dur="5s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="11" fill="#111" stroke="#fff" stroke-width="2"/><text y="4" font-size="13" text-anchor="middle" style="fill:#fff">é</text><animateMotion dur="5s" repeatCount="indefinite" path="M502 184 C530 160 570 160 597 190" keyPoints="0;0;1;1" keyTimes="0;.26;.42;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.26;.27;.42;.43;1" dur="5s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="11" fill="#111" stroke="#fff" stroke-width="2"/><text y="4" font-size="13" text-anchor="middle" style="fill:#fff">é</text><animateMotion dur="5s" repeatCount="indefinite" path="M597 190 C630 140 660 140 690 184" keyPoints="0;0;1;1" keyTimes="0;.44;.6;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.44;.45;.6;.61;1" dur="5s" repeatCount="indefinite"/></g>
+<g opacity="0"><circle r="11" fill="#111" stroke="#fff" stroke-width="2"/><text y="4" font-size="13" text-anchor="middle" style="fill:#fff">é</text><animateMotion dur="5s" repeatCount="indefinite" path="M690 184 C720 170 760 180 792 196" keyPoints="0;0;1;1" keyTimes="0;.62;.78;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.62;.63;.78;.79;1" dur="5s" repeatCount="indefinite"/></g>
+<g opacity="0"><rect x="-19" y="-10" width="38" height="20" rx="10" fill="#ffd23f" stroke="#a67c00" stroke-width="1.5"/><text y="5" font-size="12" text-anchor="middle" style="fill:#4a3600">2H⁺</text><animateTransform attributeName="transform" type="translate" values="262,240;262,62;262,62" keyTimes="0;.3;1" dur="5s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.22;.3;1" dur="5s" begin="0s" repeatCount="indefinite"/></g>
+<g opacity="0"><rect x="-19" y="-10" width="38" height="20" rx="10" fill="#ffd23f" stroke="#a67c00" stroke-width="1.5"/><text y="5" font-size="12" text-anchor="middle" style="fill:#4a3600">2H⁺</text><animateTransform attributeName="transform" type="translate" values="597,240;597,62;597,62" keyTimes="0;.3;1" dur="5s" begin="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.22;.3;1" dur="5s" begin="2.1s" repeatCount="indefinite"/></g>
+<g opacity="0"><rect x="-19" y="-10" width="38" height="20" rx="10" fill="#ffd23f" stroke="#a67c00" stroke-width="1.5"/><text y="5" font-size="12" text-anchor="middle" style="fill:#4a3600">2H⁺</text><animateTransform attributeName="transform" type="translate" values="792,240;792,62;792,62" keyTimes="0;.3;1" dur="5s" begin="3.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;1;0;0" keyTimes="0;.22;.3;1" dur="5s" begin="3.9s" repeatCount="indefinite"/></g>
+
+
+<text x="30" y="436" font-size="13" style="fill:var(--mute)">NB : la membrane interne est imperméable aux protons H⁺</text>
+</svg></div></div>
+<div class="grid" style="margin-top:26px">
+<div class="card v"><h3>🔵 Électrons</h3><p>Les points noirs <b>é</b> passent de T₁ / T₂ jusqu’à T₆ : transfert <b>spontané</b> vers un potentiel redox de plus en plus élevé.</p></div>
+<div class="card o"><h3>🟡 Protons H⁺</h3><p>L’énergie libérée pompe <b>2H⁺</b> par T₁, T₄ et T₆ de la matrice vers l’espace intermembranaire : [H⁺] élevée dehors, faible dedans.</p></div>
+<div class="card r"><h3>💧 Fin de chaîne</h3><p>T₆ donne les électrons à <b>O₂</b> (accepteur final) qui se combine à 2H⁺ : <b>½O₂ + 2é + 2H⁺ → H₂O</b>.</p></div>
+</div>
+<script>(function(){var f=document.getElementById('f3');if(!f)return;if(matchMedia('(prefers-reduced-motion:reduce)').matches){var s=f.querySelector('svg');s.pauseAnimations&&s.pauseAnimations();return}
+f.addEventListener('pointermove',function(e){if(e.pointerType==='touch')return;var r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.transform='rotateX('+(8-y*14)+'deg) rotateY('+(x*18)+'deg)'});
+f.addEventListener('pointerleave',function(){f.style.transform=''})})();</script>
+</section>
 
 <section><h2><span class="ico">🧮</span>5. Bilan de la respiration</h2>
 <div class="grid">
