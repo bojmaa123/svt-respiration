@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SVT 2 Bac – Respiration et fermentation</title>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;700&family=Nunito:wght@400;700&family=Cairo:wght@600;700&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#e9f4f1;--surf:#fff;--ink:#12303a;--mute:#4b6b75;--a:#0f8b8d;--b:#f2a33a;--c:#e4572e;--d:#6c4ab6;--edge:#0b5f61;--sh:rgba(15,70,80,.28);
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -67,10 +67,102 @@ footer{margin-top:50px;text-align:center;color:var(--mute);font-size:.85rem}
 .f3 text{font-family:Nunito,sans-serif;font-weight:700;fill:var(--ink)}
 footer p{font:700 1.05rem Fredoka,sans-serif;color:var(--ink);max-width:520px;margin:8px auto 0}
 @media (prefers-reduced-motion:reduce){.ico,.tile .big,.e3d{animation:none}}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;background:radial-gradient(circle at 12% 18%,rgba(15,139,141,.2),transparent 45%),radial-gradient(circle at 88% 72%,rgba(242,163,58,.18),transparent 45%)}
+.bg::after{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34zM28 100L0 84V66m56 0v18l-28 16' fill='none' stroke='%230f8b8d' stroke-opacity='.16'/%3E%3C/svg%3E")}
+.bg svg{position:absolute;opacity:.16;stroke:var(--a);fill:none;stroke-width:3;z-index:1}
+.bg i{position:absolute;z-index:1;font-style:normal;font-size:2.2rem;opacity:.2;animation:drift 16s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes drift{50%{transform:translateY(-34px) rotate(24deg)}}
+.hit{fill:transparent;cursor:pointer}.hit:hover{fill:rgba(255,255,255,.28)}
+.tile{cursor:pointer;transition:transform .15s}.tile:hover,.tile.on{transform:translateY(-4px)}.tile.on{outline:3px solid var(--b)}
+.ar{margin-top:20px;border-radius:16px;background:var(--surf);border-right:7px solid var(--b);box-shadow:0 5px 0 var(--edge),0 14px 22px var(--sh);padding:14px 20px;font:600 1.15rem/1.9 Cairo,'Noto Naskh Arabic',Nunito,sans-serif;direction:rtl;text-align:right;color:var(--ink)}
+.ar b{color:var(--c)}.arl{direction:rtl;text-align:right;font:600 1.05rem/1.8 Cairo,Nunito,sans-serif;color:var(--ink)!important;border-top:2px dashed var(--b);padding-top:8px}
+@media (prefers-reduced-motion:reduce){.bg i{animation:none}}
+#cover{position:fixed;inset:0;z-index:100;overflow:auto;display:flex;flex-direction:column;align-items:center;gap:18px;padding:calc(18px + env(safe-area-inset-top,0px)) 16px 28px;background:radial-gradient(circle at 20% 15%,rgba(15,139,141,.35),transparent 50%),radial-gradient(circle at 80% 85%,rgba(242,163,58,.3),transparent 50%),var(--bg);transition:opacity .6s,transform .6s}
+#cover.out{opacity:0;transform:scale(1.15);pointer-events:none}
+body.cv{overflow:hidden}
+.team{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;width:100%;max-width:960px}
+.mem{background:var(--surf);border-radius:14px;padding:10px 14px;box-shadow:0 4px 0 var(--edge),0 10px 16px var(--sh);text-align:center}
+.mem span{font-size:1.7rem;display:block}.mem small{display:block;color:var(--mute);font:600 .85rem Cairo,Nunito,sans-serif}.mem b{font:700 1.05rem Fredoka,sans-serif;color:var(--ink)}
+.pic{border:0;background:none;cursor:pointer;perspective:900px;padding:0;margin:auto 0}
+.pic>span{display:block;animation:fl2 3s ease-in-out infinite}
+.pic svg{display:block;width:min(82vw,460px);height:auto;filter:drop-shadow(0 18px 16px var(--sh));transition:transform .3s}
+.pic:hover svg,.pic:focus-visible svg{transform:rotateY(14deg) rotateX(8deg) scale(1.05)}
+@keyframes fl2{50%{transform:translateY(-10px)}}
+.cap{font:700 1.1rem/1.7 Cairo,Fredoka,sans-serif;color:var(--ink);text-align:center}
+.home{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px));z-index:50;border:0;border-radius:50%;width:48px;height:48px;font-size:1.5rem;background:var(--b);box-shadow:0 4px 0 #a56a12,0 8px 12px var(--sh);cursor:pointer}
+.gl{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.gl .g{background:var(--surf);border-radius:16px;padding:12px 16px;box-shadow:0 5px 0 var(--edge),0 14px 20px var(--sh);border-left:6px solid var(--a)}
+.gl .g b{display:flex;justify-content:space-between;gap:8px;font:700 1.05rem Fredoka,sans-serif}
+.gl .g em{font:600 1rem Cairo,sans-serif;font-style:normal;color:var(--c)}
+.gl .g p{margin:4px 0 0;color:var(--mute);font-size:.92rem}
+/* calme : on garde l’animation seulement sur la mitochondrie 3D et la chaîne respiratoire */
+.ico,.tile .big,.e3d,.pic>span{animation:none}
+.bg i{animation:none;opacity:.08}.bg svg{opacity:.07}.bg::after{opacity:.45}
+.bg{background:radial-gradient(circle at 12% 18%,rgba(15,139,141,.1),transparent 45%),radial-gradient(circle at 88% 72%,rgba(242,163,58,.09),transparent 45%)}
+html{scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+main{padding-top:78px}
+#prog{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--a),var(--b));z-index:61}
+#nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;gap:6px;align-items:center;overflow-x:auto;padding:calc(10px + env(safe-area-inset-top,0px)) 10px 8px;background:var(--surf);box-shadow:0 4px 0 var(--edge),0 8px 16px var(--sh);scrollbar-width:none}
+#nav button{flex:none;border:0;border-radius:999px;padding:6px 12px;background:var(--bg);color:var(--ink);font:700 .8rem Nunito,sans-serif;cursor:pointer}
+#nav button:hover,#nav button.on{background:var(--b);color:#2a1b00}
+#nav .th{margin-left:auto;font-size:1.1rem}
+body.cv #nav,body.cv #prog{display:none}
+section>h2.tg{cursor:pointer;user-select:none}
+h2.tg::after{content:"▾";margin-left:auto;font-size:1.3rem;color:var(--mute);transition:transform .2s}
+section.closed>h2.tg::after{transform:rotate(-90deg)}
+section.closed>.bd{display:none}
+#gs{width:100%;padding:10px 14px;border-radius:12px;border:2px solid var(--a);background:var(--surf);color:var(--ink);font:600 1rem Cairo,Nunito,sans-serif;margin-bottom:16px}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+.ppl{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;width:100%;max-width:960px;margin-top:6px}
+.ppl button{border:0;border-radius:999px;padding:8px 18px;background:var(--surf);color:var(--ink);font:700 1rem Fredoka,sans-serif;box-shadow:0 4px 0 var(--edge),0 8px 12px var(--sh);cursor:pointer}
+.ppl button.on,.ppl button:hover{background:var(--b);color:#2a1b00}
+.who{width:100%;max-width:960px;margin-top:10px;background:var(--surf);border-radius:14px;padding:12px 18px;box-shadow:0 4px 0 var(--edge),0 10px 16px var(--sh);direction:rtl;text-align:right;color:var(--ink);font:600 1.05rem/1.8 Cairo,Nunito,sans-serif}
+.who .bar2{height:14px;border-radius:8px;background:var(--bg);box-shadow:inset 0 2px 4px var(--sh);overflow:hidden;margin:6px 0}
+.who .bar2 i{display:block;height:100%;background:linear-gradient(90deg,var(--a),var(--b))}
+.who small{display:block;color:var(--mute);font-size:.85rem}
+.av{display:inline-block;width:var(--s,44px);height:var(--s,44px);border-radius:50%;overflow:hidden;flex:none;vertical-align:middle;box-shadow:0 3px 0 var(--edge),0 6px 8px var(--sh)}
+.av svg{display:block;width:100%;height:100%}
+.ppl button{display:flex;align-items:center;gap:8px;padding:6px 18px 6px 6px}.ppl .av{--s:36px}
+.mem .avs{display:flex;justify-content:center;gap:6px;margin:2px 0 6px}.mem .avs .av{--s:42px}
+.ppl button{padding:4px 16px 4px 4px;font-size:.95rem}.ppl .av{--s:38px}.mem .avs .av{--s:40px}#cover .team{gap:8px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}#cover .mem{padding:6px 10px}#cover .mem span{font-size:1.2rem}#cover .mem small{font-size:.72rem}#cover .mem b{font-size:.9rem}
+.crew{display:flex;flex-wrap:nowrap;justify-content:center;gap:10px;margin:6px 0 2px;overflow-x:auto}
+.crew div{text-align:center;font:700 .8rem Fredoka,sans-serif;flex:none}.crew .av{--s:50px;display:block;margin:0 auto 3px}.crew small{display:block;color:var(--mute);font:600 .68rem Cairo,sans-serif}
+.card{position:relative;cursor:pointer}.card::after{content:"🌐";position:absolute;top:10px;right:12px;opacity:.55;font-size:.9rem}#panel::after{content:none}#panel{cursor:default}
+.tr{margin-top:12px;padding:10px 14px;border-radius:12px;background:var(--bg);border-right:5px solid var(--b);direction:rtl;text-align:right;font:600 1rem/1.8 Cairo,Nunito,sans-serif;color:var(--ink);transform:translateZ(10px)}
+.tr b{color:var(--c)}
+/* 1. glâf plus simple */
+#cover{justify-content:center;gap:14px}#cover .pic{order:1}#cover .cap{order:2}#cover .team{order:3;max-width:640px}#cover .ppl{order:4}#cover .who{order:5}
+/* 4. sections plus propres */
+section{margin-top:36px}.grid{gap:18px}.card{padding:16px;border-top-width:4px}.card h3{font-size:1.1rem}
+/* 5. mobile */
+@media (max-width:600px){body{font-size:17px}main{padding-left:12px;padding-right:12px}.grid,.gl{grid-template-columns:1fr}.hot{font-size:.72rem;padding:5px 8px}.hot span{font-size:1.3rem}.tile .big{font-size:2.8rem}.tr{font-size:1.05rem}}
+/* 3. impression / PDF */
+@media print{#cover,#nav,#prog,.home,.bg,.hero,.hint,#gs{display:none!important}body.cv{overflow:visible}main{padding-top:0}section.closed>.bd{display:block!important}.card,.tile,.g{box-shadow:none!important;border:1px solid #bbb;break-inside:avoid;transform:none!important}.card::after{content:none}section{break-inside:auto}h2.tg::after{content:none}body{background:#fff}}
 @media (prefers-reduced-motion:reduce){.card,.flip>span{transition:none}}
 </style>
 </head>
 <body>
+<div class="bg" aria-hidden="true">
+<svg style="left:-120px;top:14%;width:420px;transform:rotate(-18deg)" viewBox="0 0 400 200"><ellipse cx="200" cy="100" rx="190" ry="90"/><ellipse cx="200" cy="100" rx="165" ry="68"/><path d="M110 40v60M150 160v-70M200 36v70M250 164v-72M290 44v62"/></svg>
+<svg style="right:-140px;bottom:6%;width:480px;transform:rotate(14deg)" viewBox="0 0 400 200"><ellipse cx="200" cy="100" rx="190" ry="90"/><ellipse cx="200" cy="100" rx="165" ry="68"/><path d="M110 40v60M150 160v-70M200 36v70M250 164v-72M290 44v62"/></svg>
+<i style="left:8%;top:12%">🧬</i><i style="left:82%;top:10%;--d:2s">🔬</i><i style="left:70%;top:40%;--d:4s">🦠</i><i style="left:5%;top:55%;--d:1s">⚡</i><i style="left:90%;top:62%;--d:3s">🔋</i><i style="left:25%;top:82%;--d:5s">🧫</i><i style="left:55%;top:90%;--d:2s">⚛️</i><i style="left:42%;top:6%;--d:6s">🫁</i>
+</div>
+<div id="cover">
+<div class="team">
+<div class="mem"><span>💻</span><small>المبرمج · Programmeur</small><b>Bojmaa</b></div>
+<div class="mem"><span>💡</span><small>صاحب الفكرة · Idée</small><b>Bojmaa</b></div>
+<div class="mem"><span>🤝</span><small>مساعدان في البرمجة · Aide</small><b>Ayoub &amp; Saad</b></div>
+<div class="mem"><span>📝</span><small>من لخّص الدرس · Résumé</small><b>Chat · Bojmaa · Ayoub</b></div>
+</div>
+<button class="pic" id="pic" aria-label="ادخل إلى ملخص الدرس – Entrer dans le résumé"><span>
+<svg viewBox="0 0 400 230" role="img" aria-hidden="true"><defs><linearGradient id="cg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#e08b1c"/></linearGradient><linearGradient id="cg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9a6b"/><stop offset="1" stop-color="#d9431f"/></linearGradient></defs>
+<ellipse cx="200" cy="122" rx="185" ry="100" fill="#8a4a05"/><ellipse cx="200" cy="115" rx="185" ry="100" fill="url(#cg1)"/><ellipse cx="165" cy="58" rx="110" ry="22" fill="#fff" opacity=".28"/>
+<ellipse cx="200" cy="118" rx="160" ry="78" fill="url(#cg2)"/>
+<path d="M95 78v44M140 160v-56M185 68v62M230 164v-66M275 76v56M315 150v-36" stroke="#ffe2d0" stroke-width="10" stroke-linecap="round" fill="none"/>
+<text x="200" y="128" font-size="62" text-anchor="middle">⚡</text><text x="200" y="168" font-size="24" font-weight="700" text-anchor="middle" fill="#fff" font-family="Fredoka,sans-serif">ATP</text></svg></span></button>
+<div class="cap" lang="ar">Respiration &amp; Fermentation · 2 Bac SVT<br>👆 اضغط على الصورة لتدخل إلى ملخص الدرس<br><small style="font-weight:600;color:var(--mute)">Clique sur l’image pour entrer dans le résumé</small></div>
+</div>
+<button class="home" id="home" title="الغلاف · Couverture" aria-label="Retour à la couverture">🏠</button>
 <main>
 <header><h1 class="title">Respiration &amp; Fermentation</h1><p>2 Bac SVT / PC Biof · Unité 1 · Chapitre 1 : libérer l’énergie de la matière organique</p></header>
 
@@ -94,7 +186,8 @@ footer p{font:700 1.05rem Fredoka,sans-serif;color:var(--ink);max-width:520px;ma
 <div class="tile"><span class="n">5</span><span class="big" style="--d:1.2s">⚡</span><b>Chaîne respiratoire</b><small>é⁻ vers O₂, pompe les H⁺</small></div>
 <div class="tile"><span class="n">6</span><span class="big" style="--d:1.5s">🔋</span><b>ATP synthase</b><small>jusqu’à 38 ATP</small></div>
 <div class="tile"><span class="n">?</span><span class="big" style="--d:1.8s">🧫</span><b>Sans O₂</b><small>fermentation : 2 ATP</small></div>
-</div></section>
+</div>
+<div class="ar" id="arF" lang="ar"></div></section>
 
 <section><h2><span class="ico">🔬</span>Vue d’ensemble</h2>
 <div class="grid">
@@ -162,6 +255,7 @@ footer p{font:700 1.05rem Fredoka,sans-serif;color:var(--ink);max-width:520px;ma
 <ellipse cx="694" cy="190" rx="42" ry="26" fill="#9c0f55"/><ellipse cx="690" cy="184" rx="42" ry="26" fill="url(#g5)"/>
 <rect x="768" y="122" width="66" height="124" rx="8" fill="#431259"/><rect x="760" y="114" width="66" height="124" rx="8" fill="url(#g6)"/></g>
 <g font-size="20" text-anchor="middle" style="paint-order:stroke"><text x="264" y="186" style="fill:#fff;stroke:#3b1b8a;stroke-width:3px">T₁</text><text x="392" y="208" style="fill:#1d3a00">T₂</text><text x="502" y="191" style="fill:#3a2e00">T₃</text><text x="597" y="186" style="fill:#fff;stroke:#0f4f73;stroke-width:3px">T₄</text><text x="690" y="191" style="fill:#fff;stroke:#7a0b40;stroke-width:3px">T₅</text><text x="793" y="182" style="fill:#fff;stroke:#2c0a3a;stroke-width:3px">T₆</text></g>
+<rect class="hit" data-t="1" x="228" y="120" width="72" height="118" rx="10"/><rect class="hit" data-t="2" x="344" y="180" width="96" height="40" rx="7"/><ellipse class="hit" data-t="3" cx="502" cy="184" rx="38" ry="22"/><rect class="hit" data-t="4" x="572" y="120" width="50" height="118" rx="20"/><ellipse class="hit" data-t="5" cx="690" cy="184" rx="42" ry="26"/><rect class="hit" data-t="6" x="760" y="114" width="66" height="124" rx="8"/>
 <g font-size="16" text-anchor="middle"><text x="250" y="322">NADH,H⁺</text><text x="330" y="322">→ NAD⁺</text><text x="400" y="352">FADH₂ → FAD</text><text x="690" y="322">½ O₂ + 2H⁺ → H₂O</text></g>
 <path d="M262 246 v38 M400 222 v60 M792 246 v38" stroke="var(--mute)" stroke-width="2" fill="none" stroke-dasharray="4 4"/>
 
@@ -178,6 +272,7 @@ footer p{font:700 1.05rem Fredoka,sans-serif;color:var(--ink);max-width:520px;ma
 
 <text x="30" y="436" font-size="13" style="fill:var(--mute)">NB : la membrane interne est imperméable aux protons H⁺</text>
 </svg></div></div>
+<div class="ar" id="arT" lang="ar"></div>
 <div class="grid" style="margin-top:26px">
 <div class="card v"><h3>🔵 Électrons</h3><p>Les points noirs <b>é</b> passent de T₁ / T₂ jusqu’à T₆ : transfert <b>spontané</b> vers un potentiel redox de plus en plus élevé.</p></div>
 <div class="card o"><h3>🟡 Protons H⁺</h3><p>L’énergie libérée pompe <b>2H⁺</b> par T₁, T₄ et T₆ de la matrice vers l’espace intermembranaire : [H⁺] élevée dehors, faible dedans.</p></div>
@@ -216,6 +311,13 @@ f.addEventListener('pointerleave',function(){f.style.transform=''})})();</script
 <button class="flip"><span><em class="q">Pourquoi la fermentation rend-elle moins d’ATP ?<small>Clique pour voir la réponse</small></em><em class="ans">Dégradation <b>partielle</b> : le résidu organique est encore riche en énergie. Rendement ≈ 2 % contre ≈ 40 %.</em></span></button>
 </div></section>
 
+<section><h2><span class="ico">📖</span>Mots difficiles · المصطلحات</h2><div class="gl" id="gl"></div></section>
+<section><h2><span class="ico">👥</span>فريق العمل · L’équipe</h2><div class="team" style="max-width:none">
+<div class="mem"><span>💻</span><small>المبرمج · Programmeur</small><b>Bojmaa</b></div>
+<div class="mem"><span>💡</span><small>صاحب الفكرة · Idée</small><b>Bojmaa</b></div>
+<div class="mem"><span>🤝</span><small>مساعدان في البرمجة · Aide</small><b>Ayoub &amp; Saad</b></div>
+<div class="mem"><span>📝</span><small>من لخّص الدرس · Résumé</small><b>Chat · Bojmaa · Ayoub</b></div>
+</div></section>
 <footer><span class="e3d">🥹</span><p>Madame CHARDANI, soyez indulgente avec moi s’il vous plaît, j’ai bien révisé ! 🙏</p></footer>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -229,8 +331,9 @@ cha:{i:'⚡',t:'Chaîne respiratoire (membrane interne et crêtes)',p:'NADH,H⁺
 atp:{i:'🔋',t:'ATP synthase (billes vertes) et gradient de H⁺',p:'Les H⁺ (points blancs) ne reviennent dans la matrice que par l’ATP synthase, ce qui fournit l’énergie pour phosphoryler l’ADP. 1 NADH,H⁺ donne 3 ATP ; 1 FADH₂ donne 2 ATP.',e:'ADP + Pi + énergie (flux de H+) → ATP'},
 fer:{i:'🧫',t:'Fermentation (sans O₂)',p:'Tout se passe dans l’hyaloplasme, la mitochondrie ne sert pas. Le pyruvate devient acide lactique (ou éthanol + CO₂), ce qui réoxyde NADH,H⁺ en NAD⁺ et permet à la glycolyse de continuer. Bilan : 2 ATP seulement.',e:'C6H12O6 + 2(ADP+Pi) → 2CH3CHOHCOOH + 2ATP'},
 bil:{i:'🧮',t:'Bilan : respiration = 36 à 38 ATP',p:'4 ATP directs + 10 NADH×3 (30) + 2 FADH₂×2 (4) = 38 ATP. Rendement ≈ 40,8 % contre 2,14 % pour la fermentation, le reste part en chaleur. Parfois 36 ATP car les 2 NADH de la glycolyse ne traversent pas la membrane mitochondriale.',e:'C6H12O6 + 6O2 + 38(ADP+Pi) → 6H2O + 6CO2 + 38ATP'}};
+var AR={gly:'التحلّل السكري: يتم في الهيالوبلازم دون O₂، ويحوّل غلوكوزاً واحداً إلى حمضَي بيروفيك مع ربح 2 ATP.',ace:'تكوين أسيتيل-CoA: نزع الكربوكسيل ونزع الهيدروجين داخل الماتريس.',kre:'حلقة كريبس: تفاعلات نزع الكربوكسيل ونزع الهيدروجين تنتهي بتجديد حمض الأوكسالوأسيتيك.',cha:'السلسلة التنفسية: نقل الإلكترونات إلى O₂ (المستقبل الأخير) وضخّ H⁺ نحو الحيّز بين الغشائين.',atp:'ATP سانتاز: عودة H⁺ عبر الكرية المعنّقة توفّر الطاقة لفسفرة ADP إلى ATP.',fer:'التخمّر: يتم في الهيالوبلازم دون O₂، ويعيد أكسدة NADH,H⁺ إلى NAD⁺ مع ربح 2 ATP فقط.',bil:'الحصيلة: التنفس الخلوي ينتج 36 إلى 38 ATP، مردوده ≈ 40.8 % مقابل 2.14 % للتخمّر.'};
 var panel=document.getElementById('panel'),btns=[].slice.call(document.querySelectorAll('.hot')),setFocus=null;
-function show(k){var d=D[k];panel.innerHTML='<h3>'+d.i+' '+d.t+'</h3><p>'+d.p+'</p><code class="eq">'+d.e+'</code>';btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k)});if(setFocus)setFocus(k);}
+function show(k){var d=D[k];panel.innerHTML='<h3>'+d.i+' '+d.t+'</h3><p>'+d.p+'</p><code class="eq">'+d.e+'</code><p class="arl" dir="rtl" lang="ar">'+(AR[k]||'')+'</p>';btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.k===k)});if(setFocus)setFocus(k);}
 btns.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.k)})});
 try{
 var cv=document.getElementById('c3d'),st=document.getElementById('stage'),reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
@@ -270,6 +373,149 @@ document.querySelectorAll('.card').forEach(function(c){
   c.addEventListener('pointerleave',function(){c.style.transform=''});
 });
 document.querySelectorAll('.flip').forEach(function(f){f.addEventListener('click',function(){f.classList.toggle('on')})});
+</script>
+<script>
+(function(){
+var TT=[['T₁','مركّب يستقبل إلكترونات NADH,H⁺ ويمرّرها إلى T₃، ويضخّ 2H⁺ من الماتريس نحو الحيّز بين الغشائين.'],
+['T₂','يؤكسد FADH₂ إلى FAD ويمرّر الإلكترونات إلى T₃، ولا يضخّ البروتونات في هذا المخطط.'],
+['T₃','ناقل للإلكترونات: يستقبلها من T₁ وT₂ ثم يسلّمها إلى T₄.'],
+['T₄','يضخّ 2H⁺ نحو الحيّز بين الغشائين ويمرّر الإلكترونات إلى T₅.'],
+['T₅','ناقل يسلّم الإلكترونات من T₄ إلى T₆.'],
+['T₆','آخر ناقل: يعطي الإلكترونات للأكسجين O₂ (المستقبل النهائي) فيتكوّن الماء H₂O، ويضخّ 2H⁺.']];
+var TA=[['الغلوكوز','المادة العضوية الغنية بالطاقة التي تُستعمل كمستقلب طاقي.'],
+['التحلّل السكري','يحدث في الهيالوبلازم دون O₂؛ يحوّل غلوكوزاً إلى حمضَي بيروفيك وينتج 2 ATP.'],
+['حمض البيروفيك','ناتج التحلّل السكري، يدخل الميتوكوندري عند وجود O₂.'],
+['حلقة كريبس','تتم في الماتريس، تفكيك كامل لحمض البيروفيك ينتج CO₂ وNADH,H⁺ وFADH₂ وATP.'],
+['السلسلة التنفسية','تنقل الإلكترونات نحو O₂ وتضخّ H⁺ لتكوين تدرّج بروتوني.'],
+['ATP سانتاز','تسمح بعودة H⁺ إلى الماتريس وتستعمل طاقتها لتركيب ATP (حتى 38).'],
+['التخمّر','يتم دون O₂ في الهيالوبلازم وينتج 2 ATP فقط.']];
+function box(id,a){var b=document.getElementById(id);if(b)b.innerHTML='<b>'+a[0]+' :</b> '+a[1]}
+var t0=document.getElementById('arT'),f0=document.getElementById('arF');
+if(t0)t0.textContent='👆 اضغط على أي ناقل (T₁ … T₆) في المخطط لتعرف دوره';
+if(f0)f0.textContent='👆 اضغط على أي بطاقة لتعرف دورها';
+document.querySelectorAll('.hit').forEach(function(h){h.addEventListener('click',function(){box('arT',TT[h.dataset.t-1])})});
+var tl=document.querySelectorAll('.tile');tl.forEach(function(el,i){el.tabIndex=0;el.setAttribute('role','button');function go(){tl.forEach(function(x){x.classList.remove('on')});el.classList.add('on');box('arF',TA[i])}el.addEventListener('click',go);el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+})();
+</script>
+<script>
+(function(){
+var G=[
+['Hyaloplasme','الهيالوبلازم','= cytosol : substance fondamentale du cytoplasme où baignent les organites.'],
+['Aérobie / Anaérobie','هوائي / لا هوائي','Avec O₂ / sans O₂.'],
+['Métabolite','مستقلب','Nutriment riche en énergie (exemple : le glucose).'],
+['Catabolisme / Anabolisme','الهدم / البناء','Dégradation des nutriments / synthèse de molécules.'],
+['Glycolyse','التحلّل السكري','Glucose → 2 acides pyruviques, dans l’hyaloplasme.'],
+['Oxydoréduction','الأكسدة والإرجاع','Transfert d’électrons entre un réducteur et un oxydant.'],
+['Déshydrogénation','نزع الهيدروجين','Perte d’atomes d’hydrogène (oxydation).'],
+['Décarboxylation','نزع الكربوكسيل','Perte d’une molécule de CO₂.'],
+['NAD⁺ / FAD','ناقلات الهيدروجين','Transporteurs d’hydrogène oxydés ; réduits : NADH,H⁺ / FADH₂.'],
+['Acétyl-coenzyme A','أسيتيل مرافق الإنزيم A','Composé en C2 formé à partir du pyruvate ; il entre dans le cycle de Krebs.'],
+['Cycle de Krebs','حلقة كريبس','Réactions de la matrice qui dégradent totalement le pyruvate.'],
+['Crêtes','الأعراف','Replis de la membrane interne de la mitochondrie.'],
+['Matrice','الماتريس','Espace interne de la mitochondrie.'],
+['ATP synthase','ATP سانتاز','Sphère pédonculée qui synthétise l’ATP.'],
+['Chaîne respiratoire','السلسلة التنفسية','Transporteurs d’électrons de la membrane interne.'],
+['Potentiel redox','الكمون الأكسدي الإرجاعي','Mesure du pouvoir réducteur ou oxydant d’un couple.'],
+['Gradient de protons','تدرّج البروتونات','Différence de [H⁺] de part et d’autre de la membrane interne.'],
+['Phosphorylation oxydative','الفسفرة التأكسدية','Synthèse d’ATP couplée à l’oxydation des transporteurs.'],
+['Fermentation','التخمّر','Dégradation partielle du glucose sans O₂ (lactique ou alcoolique).'],
+['Rendement énergétique','المردود الطاقي','Énergie produite ÷ énergie utilisée × 100.']];
+var gl=document.getElementById('gl');
+if(gl)gl.innerHTML=G.map(function(g){return '<div class="g"><b>'+g[0]+'<em lang="ar">'+g[1]+'</em></b><p>'+g[2]+'</p></div>'}).join('');
+var cv=document.getElementById('cover'),b=document.body;b.classList.add('cv');
+function enter(){cv.classList.add('out');b.classList.remove('cv');window.scrollTo(0,0);setTimeout(function(){cv.style.display='none'},600)}
+document.getElementById('pic').addEventListener('click',enter);
+document.getElementById('home').addEventListener('click',function(){cv.style.display='';void cv.offsetWidth;cv.classList.remove('out');b.classList.add('cv')});
+})();
+</script>
+<script>
+(function(){
+var secs=[].slice.call(document.querySelectorAll('main section')),root=document.documentElement,reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+secs.forEach(function(s){var h=s.querySelector(':scope>h2');if(!h)return;var bd=document.createElement('div');bd.className='bd';while(h.nextSibling)bd.appendChild(h.nextSibling);s.appendChild(bd);h.classList.add('tg');h.tabIndex=0;h.setAttribute('role','button');
+var txt=h.textContent.toLowerCase();if(txt.indexOf('mots difficiles')>-1||txt.indexOf('فريق')>-1)s.classList.add('closed');
+h.setAttribute('aria-expanded',!s.classList.contains('closed'));
+function t(){var c=s.classList.toggle('closed');h.setAttribute('aria-expanded',!c)}
+h.addEventListener('click',t);h.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();t()}})});
+function find(k){return secs.filter(function(s){var h=s.querySelector('h2');return h&&h.textContent.toLowerCase().indexOf(k)>-1})[0]}
+var items=[['🧬 3D',document.getElementById('stage')],['🗺️ Parcours',find('parcours')],['✂️ Glycolyse',find('1. la glycolyse')],['🏭 Mitochondrie',find('2. la mitochondrie')],['🔄 Krebs',find('cycle de krebs')],['⚡ Chaîne',find('chaîne respiratoire et')],['🧮 Bilan',find('5. bilan')],['🧫 Fermentation',find('la fermentation')],['📖 Mots',find('mots difficiles')]];
+var prog=document.createElement('div');prog.id='prog';document.body.appendChild(prog);
+var nav=document.createElement('nav');nav.id='nav';nav.setAttribute('aria-label','Sections');document.body.appendChild(nav);
+var nb=[];items.forEach(function(it){if(!it[1])return;var b=document.createElement('button');b.textContent=it[0];b.addEventListener('click',function(){var s=it[1];if(s.classList&&s.classList.contains('closed')){s.classList.remove('closed');var h=s.querySelector('h2');if(h)h.setAttribute('aria-expanded','true')}s.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})});nav.appendChild(b);nb.push([b,it[1]])});
+var th=document.createElement('button');th.className='th';th.setAttribute('aria-label','Mode clair / sombre');nav.appendChild(th);
+function dark(){var t=root.dataset.theme;return t?t==='dark':matchMedia('(prefers-color-scheme:dark)').matches}
+function upd(){th.textContent=dark()?'☀️':'🌙'}
+try{var sv=localStorage.getItem('svt-theme');if(sv)root.dataset.theme=sv}catch(e){}
+upd();th.addEventListener('click',function(){var n=dark()?'light':'dark';root.dataset.theme=n;try{localStorage.setItem('svt-theme',n)}catch(e){}upd()});
+function sc(){var m=root.scrollHeight-innerHeight;prog.style.width=(m>0?scrollY/m*100:0)+'%';var cur=null;nb.forEach(function(x){if(x[1].getBoundingClientRect().top<140)cur=x[0]});nb.forEach(function(x){x[0].classList.toggle('on',x[0]===cur)})}
+addEventListener('scroll',sc,{passive:true});sc();
+var gl=document.getElementById('gl');if(gl){var gs=document.createElement('input');gs.id='gs';gs.type='search';gs.placeholder='🔎 ابحث · Rechercher un mot…';gs.setAttribute('aria-label','Rechercher un mot');gl.parentNode.insertBefore(gs,gl);
+gs.addEventListener('input',function(){var q=gs.value.trim().toLowerCase();[].forEach.call(gl.children,function(g){g.style.display=!q||g.textContent.toLowerCase().indexOf(q)>-1?'':'none'})})}
+})();
+</script>
+<script>
+(function(){
+function A(o,n){var id='g'+n;return '<svg viewBox="0 0 64 64" aria-hidden="true"><defs><radialGradient id="'+id+'" cx=".42" cy=".36" r=".75"><stop offset="0" stop-color="'+o.sk+'"/><stop offset="1" stop-color="'+o.sh+'"/></radialGradient><linearGradient id="'+id+'b" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+o.bg+'"/><stop offset="1" stop-color="'+o.bg2+'"/></linearGradient></defs><rect width="64" height="64" fill="url(#'+id+'b)"/>'+(o.back?'<path d="'+o.back+'" fill="'+o.hc+'"/>':'')+'<path d="M4 64c0-13 9-19 20-21l8 5 8-5c11 2 20 8 20 21z" fill="'+o.shirt+'"/><path d="M26 37v8c0 4 12 4 12 0v-8z" fill="'+o.sh+'"/><path d="M25 43.5l7 8 7-8z" fill="'+o.sh+'"/><ellipse cx="17.5" cy="32" rx="2.6" ry="4" fill="'+o.sh+'"/><ellipse cx="46.5" cy="32" rx="2.6" ry="4" fill="'+o.sh+'"/><path d="M18 28c0-10 6-16 14-16s14 6 14 16v5c0 9-6 15-14 15s-14-6-14-15z" fill="url(#'+id+')"/>'+(o.st?'<path d="M19 35c1 9 6 13 13 13s12-4 13-13c-3 6-8 8-13 8s-10-2-13-8z" fill="#000" opacity=".13"/>':'')+'<path d="'+o.front+'" fill="'+o.hc+'"/><path d="M22 25.5q4-2.6 8 0M34 25.5q4-2.6 8 0" stroke="'+o.hc+'" stroke-width="'+o.bw+'" fill="none" stroke-linecap="round"/><ellipse cx="26" cy="29.8" rx="2.8" ry="1.9" fill="#fff"/><ellipse cx="38" cy="29.8" rx="2.8" ry="1.9" fill="#fff"/><circle cx="26" cy="29.8" r="1.5" fill="#2b1a10"/><circle cx="38" cy="29.8" r="1.5" fill="#2b1a10"/><circle cx="26.5" cy="29.2" r=".5" fill="#fff"/><circle cx="38.5" cy="29.2" r=".5" fill="#fff"/><path d="M32 31c0 3 .6 5-1.8 6.2 1.2.8 3.2.8 4.4 0" stroke="'+o.sh+'" stroke-width="1" fill="none"/><path d="M27 41.5q5 3.2 10 0" stroke="#7a3b2e" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>'}
+var rose='';for(var a=0;a<360;a+=60)rose+='<rect x="26" y="13" width="12" height="21" rx="6" fill="none" stroke="#fff" stroke-width="3" transform="rotate('+a+' 32 32)"/>';
+window.AV={
+Bojmaa:A({bg:'#bfe8e9',bg2:'#8fd0d3',shirt:'#0f8b8d',sk:'#9a6444',sh:'#6e4229',hc:'#1b1208',front:'M18 27c-1-11 5-17 14-17s15 6 14 17c-2-5-4-7-6-8-4 2-12 2-16 0-2 1-4 3-6 8z',bw:2.2},'Bojmaa'),
+Ayoub:A({bg:'#ffe3b8',bg2:'#f6c780',shirt:'#e4572e',sk:'#f4cba8',sh:'#d3a07a',hc:'#3a2a1c',front:'M18 28c-2-12 5-18 14-18 10 0 16 6 14 18-1-4-3-7-6-8-5 1-10 0-14-3-3 3-6 6-8 11z',bw:2.3},'Ayoub'),
+Saad:A({bg:'#e0d4ff',bg2:'#bba6f0',shirt:'#6c4ab6',sk:'#f5d6b8',sh:'#d6a984',hc:'#5a3b22',back:'M15 33c-2-15 5-24 17-24s19 9 17 24l-1 8-3-4v-8H19v8l-3 4z',front:'M17 31c-3-14 3-22 15-22s18 8 15 22c-1-6-3-9-5-11-6 2-13 1-19-3-3 3-5 7-6 14z',bw:2.7,st:1},'Saad'),
+Chat:'<svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" fill="#10a37f"/>'+rose+'</svg>'};
+document.querySelectorAll('.mem').forEach(function(m){var t=m.querySelector('b').textContent,d=document.createElement('div');d.className='avs';['Bojmaa','Ayoub','Saad','Chat'].forEach(function(n){if(t.indexOf(n)>-1)d.innerHTML+='<span class="av" title="'+n+'">'+AV[n]+'</span>'});m.insertBefore(d,m.querySelector('small'))});
+})();
+</script>
+<script>
+(function(){
+var P={Bojmaa:['💡 صاحب الفكرة','💻 المبرمج','📝 لخّص الدرس'],Ayoub:['🤝 مساعد في البرمجة','📝 لخّص الدرس'],Saad:['🤝 مساعد في البرمجة'],Chat:['📝 لخّص الدرس']};
+document.querySelectorAll('.team').forEach(function(t){
+var r=document.createElement('div');r.className='ppl';var w=document.createElement('div');w.className='who';w.setAttribute('aria-live','polite');w.textContent='👆 اضغط على اسم أي عضو لتعرف ماذا عمل';
+Object.keys(P).forEach(function(n){var b=document.createElement('button');b.innerHTML='<span class="av">'+AV[n]+'</span>'+n;b.addEventListener('click',function(){var l=P[n];
+[].forEach.call(r.children,function(x){x.classList.remove('on')});b.classList.add('on');
+w.innerHTML='<span class="av" style="--s:100px;float:right;margin-left:14px">'+AV[n]+'</span><b>'+n+'</b><br>'+l.join(' · ')+'<div class="bar2"><i style="width:'+(l.length/3*100)+'%"></i></div><small>عدد المهام: '+l.length+' (حسب الأدوار المذكورة، وليس نسبة دقيقة)</small>'});r.appendChild(b)});
+t.parentNode.insertBefore(r,t.nextSibling);t.parentNode.insertBefore(w,r.nextSibling)});
+})();
+</script>
+<script>
+(function(){
+var T=[
+['التنفس الخلوي: مسلك هوائي (بوجود O₂). أكسدة كاملة للغلوكوز تتم في الهيالوبلازم والميتوكوندري وتعطي 36 إلى 38 ATP مع CO₂ وH₂O. المعادلة: غلوكوز + 6O₂ ← 6H₂O + 6CO₂ + طاقة.','أفضل طريقة لاستخراج الطاقة من الغلوكوز.'],
+['التخمّر الكحولي: مسلك لاهوائي في الهيالوبلازم. تفكيك جزئي للغلوكوز، والإيثانول الناتج ما زال غنياً بالطاقة. ينتج 2 ATP.','تخمّر بدون أكسجين ينتج الإيثانول وCO₂.'],
+['التخمّر اللبني: لاهوائي أيضاً (بكتيريا الحليب والخلية العضلية). حمض اللبن يُحمّض الوسط فيتحول الحليب إلى لبن رائب. ينتج 2 ATP.','تخمّر بدون أكسجين ينتج حمض اللبن.'],
+['يتم في الهيالوبلازم (العصارة الخلوية) دون O₂. يحوّل جزيء غلوكوز (6 كربونات) إلى جزيئين من حمض البيروفيك (3 كربونات).','مكان ونتيجة التحلل السكري.'],
+['المرحلة 1: يثبّت الغلوكوز فوسفاتين من 2 ATP فيصبح فركتوز ثنائي الفوسفات (تستهلك طاقة). المرحلة 2: ينقسم إلى جزيئين غليسرألدهيد فوسفات مع نزع الهيدروجين: NAD⁺ يتحول إلى NADH,H⁺. المرحلة 3: تُصنَّع 4 ATP وجزيئان من حمض البيروفيك.','ثلاث مراحل: استهلاك طاقة ثم أكسدة ثم إنتاج ATP.'],
+['الربح الصافي: 2 ATP و2 NADH,H⁺ لكل غلوكوز. التفاعل الأساسي هو أكسدة-إرجاع (NAD⁺ يأخذ الهيدروجين).','حصيلة التحلل السكري: 2 ATP صافية.'],
+['الغشاء الخارجي نفوذ ويشبه الغشاء الهيولي (62 % بروتينات). الغشاء الداخلي له أعراف و80 % بروتينات وكريات معنّقة (ATP سانتاز). بينهما الحيّز بين الغشائين. الماتريس فيها البيروفات وATP وADP وPi وإنزيمات نازعة للهيدروجين ونازعة للكربوكسيل.','بنية الميتوكوندري: غشاءان وأعراف وماتريس.'],
+['الميتوكوندريات المعزولة لا تستعمل الغلوكوز (O₂ ثابت) لكنها تستهلك حمض البيروفيك بوجود O₂ (من 120 إلى 60 µmol/L في 5 دقائق). الخلاصة: التنفس بعد التحلل السكري يتم في الميتوكوندري.','الميتوكوندري يستعمل البيروفات وليس الغلوكوز.'],
+['نزع الكربوكسيل (فقدان CO₂) ونزع الهيدروجين (إرجاع NAD⁺). المعادلة: بيروفات + NAD⁺ + CoA ← أسيتيل-CoA + NADH,H⁺ + CO₂.','تحويل البيروفات إلى أسيتيل-CoA.'],
+['يرتبط أسيتيل-CoA بمركّب من 4 كربونات فيعطي مركّباً من 6 كربونات، ثم تتوالى تفاعلات نزع الكربوكسيل ونزع الهيدروجين، وفي النهاية يتجدد حمض الأوكسالوأسيتيك (C4).','حلقة كريبس: تفكيك كامل للأسيتيل مع تجدد المركّب الأول.'],
+['تفكيك كامل للبيروفات: 3 CO₂ و4 NADH,H⁺ و1 FADH₂ و1 ATP فقط. معظم الطاقة مخزّنة في الناقلات المرجعة.','الماتريس تنتج قليلاً من ATP وكثيراً من الناقلات المرجعة.'],
+['تتأكسد NADH,H⁺ (عبر T1) وFADH₂ (عبر T2) على الغشاء الداخلي. تنتقل الإلكترونات من ناقل إلى آخر من الكمون الأقل إلى الأعلى. المستقبل الأخير هو O₂ فيتكوّن الماء.','الإلكترونات تنتقل حتى O₂ فيتكوّن الماء.'],
+['الطاقة المتحررة تُستعمل لضخّ H⁺ من الماتريس إلى الحيّز بين الغشائين (نقل نشيط). الغشاء غير نفوذ لـH⁺: تركيزها مرتفع في الخارج ومنخفض في الداخل. بدون O₂ تتوقف السلسلة.','ضخّ البروتونات يخلق تدرّجاً بروتونياً.'],
+['تعود H⁺ إلى الماتريس فقط عبر ATP سانتاز (الكرية المعنّقة)، وهذا التدفق يوفّر الطاقة لتفاعل ADP + Pi ← ATP. الشروط: وجود تدرّج (pHi > pHe) ووجود الكريات المعنّقة.','تدفق H⁺ عبر ATP سانتاز يصنع ATP.'],
+['1 NADH,H⁺ يعطي 3 ATP و1 FADH₂ يعطي 2 ATP. تُسمّى «الفسفرة التأكسدية» لأن فسفرة ADP مقترنة بأكسدة الناقلات.','كم ATP تعطي كل ناقلة.'],
+['النقط السوداء (é) تنتقل من T₁/T₂ إلى T₆: انتقال تلقائي نحو كمون أكسدة-إرجاع أعلى.','الإلكترونات تتحرك تلقائياً نحو الكمون الأعلى.'],
+['الطاقة المتحررة تضخّ 2H⁺ عبر T₁ وT₄ وT₆ من الماتريس إلى الحيّز بين الغشائين: تركيز H⁺ مرتفع في الخارج ومنخفض في الداخل.','ثلاث نقاط للضخ: T₁ وT₄ وT₆.'],
+['T₆ يعطي الإلكترونات لـO₂ (المستقبل الأخير) الذي يتحد مع 2H⁺: ½O₂ + 2é + 2H⁺ ← H₂O.','نهاية السلسلة: تكوين الماء.'],
+['التحلل السكري: 2 ATP + 2 NADH. تكوين أسيتيل-CoA: 2 NADH. حلقتا كريبس: 6 NADH + 2 FADH₂ + 2 ATP. المباشر: 4 ATP، و10 NADH×3 = 30، و2 FADH₂×2 = 4. المجموع = 38 ATP.','حساب مجموع ATP: 38.'],
+['جزيئا NADH الناتجان في الهيالوبلازم لا يعبران غشاء الميتوكوندري فيُعوَّضان بجزيئي FADH₂. لذلك فقط الخلايا القلبية والكبدية تنتج 38 ATP والباقي 36.','سبب الحصول أحياناً على 36 بدل 38.'],
+['اللبني: بيروفات ← حمض اللبن مع NADH,H⁺ ← NAD⁺. الكحولي: بيروفات ← إيثانول + CO₂ مع NADH,H⁺ ← NAD⁺.','نفس الهدف في الحالتين: تجديد NAD⁺.'],
+['المرحلة الأخيرة لا تنتج ATP لكنها تعيد أكسدة NADH,H⁺ إلى NAD⁺. وNAD⁺ ضروري لاستمرار التحلل السكري (الناقلات قليلة في الخلية). الحصيلة: 2 ATP من التحلل السكري.','تجديد NAD⁺ يُبقي التحلل السكري شغّالاً.'],
+['مول غلوكوز يحرّر 2840 kJ ومول ATP = 30,5 kJ. المردود R = الطاقة المنتجة ÷ الطاقة المستعملة × 100. التنفس: 38×30,5 = 1159 kJ أي 40,8 %.','طريقة حساب المردود الطاقي.'],
+['التنفس يفكّك الغلوكوز كاملاً (نواتج معدنية CO₂ وH₂O بلا طاقة). التخمّر جزئي: حمض اللبن أو الإيثانول ما زالا يحتويان طاقة (2672 kJ للبني). الباقي يضيع حرارة.','لهذا مردود التنفس أكبر من مردود التخمّر.']];
+var cs=[].filter.call(document.querySelectorAll('main .card'),function(c){return c.id!=='panel'});
+cs.forEach(function(c,i){if(!T[i])return;c.title='اضغط لترى الترجمة والفكرة العامة';c.addEventListener('click',function(){var o=c.querySelector(':scope>.tr');if(o){o.remove();return}var d=document.createElement('div');d.className='tr';d.lang='ar';d.innerHTML='<b>🌐 الترجمة:</b> '+T[i][0]+'<br><b>💡 الفكرة العامة:</b> '+T[i][1];c.appendChild(d)})});
+var hd=document.querySelector('main header'),N={Bojmaa:'المبرمج · صاحب الفكرة',Ayoub:'مساعد في البرمجة',Saad:'مساعد في البرمجة',Chat:'لخّص الدرس'};
+if(hd){var tp=document.createElement('p');tp.className='hint';tp.textContent='🌐 اضغط على أي بطاقة لترى ترجمتها بالعربية وفكرتها العامة';hd.appendChild(tp)}
+})();
+</script>
+<script>
+(function(){
+var nav=document.getElementById('nav');if(!nav)return;var th=nav.querySelector('.th');
+function mk(t,l,f){var b=document.createElement('button');b.textContent=t;b.title=l;b.setAttribute('aria-label',l);b.addEventListener('click',f);nav.insertBefore(b,th);return b}
+var all=false;
+var tb=mk('🌐 الترجمة','أظهر / أخفِ كل الترجمات',function(){all=!all;tb.classList.toggle('on',all);[].forEach.call(document.querySelectorAll('main .card'),function(c){if(c.id==='panel')return;var has=!!c.querySelector(':scope>.tr');if(all!==has)c.click()})});
+mk('🖨️ PDF','طباعة / حفظ PDF',function(){window.print()});
+})();
 </script>
 </body>
 </html>
